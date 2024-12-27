@@ -1,5 +1,6 @@
 # Python App Bundle Shield Script Documentation
 
+[![DOI](https://zenodo.org/badge/908938748.svg)](https://doi.org/10.5281/zenodo.14562246)
 [![License](https://img.shields.io/badge/license-Custom-blue.svg)](LICENSE.md)
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
 [![Cross-Platform](https://img.shields.io/badge/cross--platform-yes-brightgreen.svg)](#1-introduction)
