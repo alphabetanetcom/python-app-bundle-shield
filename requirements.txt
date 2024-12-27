@@ -1,0 +1,7 @@
+requests
+psutil
+cryptography
+decompyle3
+xdis
+astor
+pyinstaller
