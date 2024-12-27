@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: Python App Bundle Shield
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Pavel
+    family-names: Izosimov
+    affiliation: Alpha Beta Network
+    orcid: 'https://orcid.org/0009-0004-7126-6743'
+    website: 'https://alphabetanet.com'
+repository-code: >-
+  https://github.com/alphabetanetcom/python-app-bundle-shield
+url: 'https://alphabetanet.com/'
+repository: >-
+  https://gitlab.com/alphabetanetcom/python-app-bundle-shield
+repository-artifact: >-
+  https://github.com/alphabetanetcom/python-app-bundle-shield/releases
+abstract: >-
+  The Python App Bundle Shield Script is a powerful, user-friendly
+  tool designed to help developers create standalone protected 
+  applications and executable files based on Python scripts of 
+  varying complexity. This cross-platform solution, allowing you
+  to package your Python code into self-contained executables for
+  secure distribution.
+keywords:
+  - python security
+  - app protection
+  - code protection
+  - python executable
+  - standalone application
+  - python bundler
+  - cross platform development
+  - encryption tool
+  - license management
+  - secure distribution
+version: v1.3-beta.1
+date-released: '2024-12-27'
+license-url: 'https://github.com/alphabetanetcom/python-app-bundle-shield/blob/main/LICENSE.md'
