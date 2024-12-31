@@ -27,16 +27,24 @@
 - [4. Installation](#4-installation)
   - [4.1 Installing Required Packages](#41-installing-required-packages)
   - [4.2 System Requirements](#42-system-requirements)
-- [5. User Interface Overview](#5-user-interface-overview)
+- [5. User Interface and Command-Line Overview](#5-user-interface-and-command-line-overview)
+  - [5.1 Graphical User Interface (GUI)](#51-graphical-user-interface-gui)
+  - [5.2 Command-Line Interface (CLI)](#52-command-line-interface-cli)
 - [6. Detailed Description of Each Function](#6-detailed-description-of-each-function)
   - [6.1 Packaging Python Source Files](#61-packaging-python-source-files)
   - [6.2 Packaging Compiled Python Files](#62-packaging-compiled-python-files)
   - [6.3 Embedding the Full Python Runtime](#63-embedding-the-full-python-runtime)
   - [6.4 Additional Protection Layers](#64-additional-protection-layers)
 - [7. Usage Instructions](#7-usage-instructions)
-  - [7.1 Basic Packaging of a Source File](#71-basic-packaging-of-a-source-file)
-  - [7.2 Packaging with Full Python Runtime](#72-packaging-with-full-python-runtime)
-  - [7.3 Packaging with Cloud-Protected Scripts](#73-packaging-with-cloud-protected-scripts)
+  - [7.1 Basic Packaging Using the GUI](#71-basic-packaging-using-the-gui)
+  - [7.2 Packaging with Full Python Runtime Using the GUI](#72-packaging-with-full-python-runtime-using-the-gui)
+  - [7.3 Packaging with Cloud-Protected Scripts Using the GUI](#73-packaging-with-cloud-protected-scripts-using-the-gui)
+  - [7.4 Command-Line Usage Examples](#74-command-line-usage-examples)
+    - [7.4.1 Basic Packaging of a Source File](#741-basic-packaging-of-a-source-file)
+    - [7.4.2 Packaging with Full Python Runtime](#742-packaging-with-full-python-runtime)
+    - [7.4.3 Packaging a Compiled Python File](#743-packaging-a-compiled-python-file)
+    - [7.4.4 Packaging with Additional Options](#744-packaging-with-additional-options)
+    - [7.4.5 Full Example with All Options](#745-full-example-with-all-options)
 - [8. Recommendations and Best Practices](#8-recommendations-and-best-practices)
 - [9. Integration with Alpha Beta Network Tools](#9-integration-with-alpha-beta-network-tools)
 - [Appendix A: Installation of Required Packages](#appendix-a-installation-of-required-packages)
@@ -56,7 +64,7 @@ Key benefits of using this script include:
 - **Seamless Application Updates**: Update your applications without requiring end-users to reinstall them when using **Alpha Beta Network** cloud platform protection tools.
 - **Usage Restrictions**: Implement restrictions on each instance of your application, such as expiration dates, hardware-bound licensing, usage frequency limits, and more.
 - **Cross-Platform Compatibility**: Create applications that work on Windows, macOS, Linux/Unix, and other operating systems where Python 3.6+ is installed.
-- **Ease of Use**: Package applications with just a few clicks using a simple graphical interface, without the need for complex configurations.
+- **Ease of Use**: Package applications with just a few clicks using a simple graphical interface or automate the process with command-line arguments, without the need for complex configurations.
 
 By combining the **Python App Bundle Shield** with other tools from the **Alpha Beta Network** cloud platform, developers can achieve the widest and most flexible possibilities for **secure distribution** of their applications.
 
@@ -74,11 +82,13 @@ By combining the **Python App Bundle Shield** with other tools from the **Alpha 
 
 6. **Support for Cloud-Protected Scripts**: Provides extensive capabilities to use Python scripts protected by the Alpha Beta Network cloud platform, facilitating secure code sharing and source code protection.
 
-7. **Ease of Use**: Features a simple, user-friendly graphical interface that requires no complex configurations, allowing you to create secure standalone applications with minimal effort.
+7. **Ease of Use**: Features a simple, user-friendly graphical interface and command-line support that requires no complex configurations, allowing you to create secure standalone applications with minimal effort.
 
 # 3. Main Functions of the Script
 
-- **Packaging Python Scripts into Executables**: Converts Python source files (`.py`) and compiled files (`.pyc`) into standalone executables, making them runnable on systems without requiring Python installation.
+- **Packaging Python Scripts into Executables**: Converts Python source files (`.py`) and compiled files (`.pyc`) into standalone executables, making them runnable on systems without requiring Python installation. This can be done via a user-friendly graphical interface or through command-line arguments for automation and scriptability.
+
+- **Command-Line Interface Support**: Provides flexible command-line arguments for advanced users who prefer automation or need to integrate the packaging process into scripts and build processes.
 
 - **Embedding Full Python Runtime**: Optionally embeds the entire Python runtime environment and all necessary dependencies into the executable, ensuring functionality even on systems without Python installed.
 
@@ -119,29 +129,57 @@ Ensure that you are using the correct version of `pip` associated with your Pyth
 - **Python Version**: Python 3.6 or higher.
 - **Dependencies**: As listed above.
 
-# 5. User Interface Overview
+# 5. User Interface and Command-Line Overview
 
-The **Python App Bundle Shield** features a graphical user interface (GUI) with the following components:
+The **Python App Bundle Shield** features both a graphical user interface (GUI) and command-line interface (CLI) to accommodate different user preferences.
+
+## 5.1 Graphical User Interface (GUI)
+
+The GUI includes the following components:
 
 - **File Selection**: Browse and select the Python file (`.py` or `.pyc`) you wish to package.
 - **Options**:
-  - **Embed Full Python Runtime**: Includes the full Python environment and all installed `pip` packages in the build. Useful when your script uses additional modules or cloud-protected scripts.
+  - **Auto embed full python runtime**: Includes the full Python environment and all installed `pip` packages in the build. Useful when your script uses additional modules or cloud-protected scripts.
   - **Disable Console Window**: Hides the console window when running the application (useful for GUI applications).
   - **Create a One-File Bundled Executable**: Packages everything into a single executable file.
 - **Additional Modules**: Specify any additional modules (comma-separated) that need to be included.
 - **Progress Display**: Shows the progress of the packaging process.
 - **Messages**: Displays logs and messages during the process.
 
+## 5.2 Command-Line Interface (CLI)
+
+The CLI offers the same functionality as the GUI but allows for automation and integration into scripts:
+
+- **Basic Usage**:
+
+  ```bash
+  python python_app_bundle_shield.py -f <path_to_file> [options]
+  ```
+
+- **Options**:
+
+  - `-f`, `--file`: **(Required)** Path to the Python source file (`.py`) or compiled file (`.pyc`).
+  - `-a`, `--autoembed`: Auto embed the full Python runtime and all installed `pip` packages.
+  - `-w`, `--windowed`: Disable the console window for the packaged application.
+  - `-o`, `--onefile`: Create a one-file bundled executable.
+  - `-m`, `--module`: Specify additional modules to include (comma-separated).
+
 # 6. Detailed Description of Each Function
 
 ## 6.1 Packaging Python Source Files
 
-The script packages Python source files (`.py`) into standalone executables. It performs the following steps:
+The script packages Python source files (`.py`) into standalone executables. This can be done via the GUI or command line. It performs the following steps:
 
 - **Code Analysis**: Automatically analyzes the code to detect imported modules and dependencies.
 - **Code Obfuscation**: Applies multi-level obfuscation and encryption to the code.
 - **Dependency Inclusion**: Includes necessary modules and packages in the build.
 - **Executable Creation**: Uses PyInstaller to create the executable file.
+
+**Command-Line Usage Example**:
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_script.py
+```
 
 ## 6.2 Packaging Compiled Python Files
 
@@ -151,13 +189,25 @@ The script can also package compiled Python files (`.pyc`), including those from
 - **Code Handling**: Converts the `.pyc` file back to a safe code representation and re-protects it.
 - **Executable Creation**: Packages the code into an executable, ensuring compatibility with the required Python version.
 
+**Command-Line Usage Example**:
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_compiled_script.pyc
+```
+
 ## 6.3 Embedding the Full Python Runtime
 
-By activating the **Embed Full Python Runtime** option, the script:
+By activating the **Auto embed full python runtime** option (either in the GUI or via the `-a` flag in the command line), the script:
 
 - **Includes Python Interpreter**: Embeds the Python interpreter into the application build.
 - **Includes Installed Packages**: Automatically includes all modules and packages installed via `pip` in your current environment.
 - **Creates Universal Environment**: When using cloud-protected scripts, it creates a special universal environment to maximize functionality and ensure smooth interaction with imported modules.
+
+**Command-Line Usage Example**:
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_script.py -a
+```
 
 ## 6.4 Additional Protection Layers
 
@@ -169,33 +219,102 @@ The script enhances security by:
 
 # 7. Usage Instructions
 
-## 7.1 Basic Packaging of a Source File
+## 7.1 Basic Packaging Using the GUI
 
-To package a Python source file into an executable without additional options:
+To package a Python source file into an executable using the GUI:
 
 1. **Launch the Script**: Run the `python_app_bundle_shield.py` script.
 2. **Select Your File**: Click "Browse" and select your `.py` file.
 3. **Click "Start"**: The script will package your file into an executable in the `dist` directory.
 
-## 7.2 Packaging with Full Python Runtime
+## 7.2 Packaging with Full Python Runtime Using the GUI
 
 If your script uses additional modules or packages installed via `pip`, or you are using cloud-protected scripts, it is recommended to embed the full Python runtime:
 
 1. **Select Your File**: As above.
-2. **Enable "Embed Full Python Runtime"**: Check the option.
+2. **Enable "Auto embed full python runtime"**: Check the option.
 3. **Optional**: Specify any additional modules in the "Additional Modules" field. If your application requires additional modules that are not automatically detected, you can specify them (comma-separated) in the **Additional Modules** field.
 4. **Click "Start"**: The script will package your file into an executable, including the full Python runtime.
 
-## 7.3 Packaging with Cloud-Protected Scripts
+## 7.3 Packaging with Cloud-Protected Scripts Using the GUI
 
 When using scripts protected by Alpha Beta Network cloud tools:
 
 1. **Obtain Cloud-Protected Script**: Use the [Python Obfuscator Online](https://obfuscator.alphabetanet.com/) or [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager) to obtain your protected script.
 2. **Select Your File**: Choose the cloud-protected `.py` file.
-3. **Enable "Embed Full Python Runtime"**: Check the option.
+3. **Enable "Auto embed full python runtime"**: Check the option.
 4. **Click "Start"**: The script will create an executable optimized for cloud-protected scripts.
 
 **Note**: If your cloud-protected script uses external programs (besides packages installed via `pip`), you can try copying these programs to the `_internal` directory of the created application and verify functionality.
+
+## 7.4 Command-Line Usage Examples
+
+The **Python App Bundle Shield** now supports operation via command-line arguments, enabling automation and scripting capabilities.
+
+### 7.4.1 Basic Packaging of a Source File
+
+To package a Python source file into an executable using the command line:
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_script.py
+```
+
+This command will package `your_script.py` into an executable in the `dist` directory.
+
+### 7.4.2 Packaging with Full Python Runtime
+
+If your script uses additional modules or requires the full Python environment:
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_script.py -a
+```
+
+The `-a` or `--autoembed` flag instructs the script to embed the full Python runtime and all installed packages.
+
+### 7.4.3 Packaging a Compiled Python File
+
+To package a compiled Python file (`.pyc`):
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_compiled_script.pyc
+```
+
+The script will handle version detection and packaging appropriately.
+
+### 7.4.4 Packaging with Additional Options
+
+You can combine multiple options to customize the packaging process:
+
+- **Disable Console Window**:
+
+  ```bash
+  python python_app_bundle_shield.py -f /path/to/your_script.py -w
+  ```
+
+- **Create a One-File Executable**:
+
+  ```bash
+  python python_app_bundle_shield.py -f /path/to/your_script.py -o
+  ```
+
+- **Specify Additional Modules**:
+
+  ```bash
+  python python_app_bundle_shield.py -f /path/to/your_script.py -m module1,module2
+  ```
+
+### 7.4.5 Full Example with All Options
+
+```bash
+python python_app_bundle_shield.py -f /path/to/your_script.py -a -w -o -m requests,psutil
+```
+
+This command will:
+
+- Package `your_script.py` into a one-file executable.
+- Embed the full Python runtime (`-a`).
+- Disable the console window (`-w`).
+- Include the additional modules `requests` and `psutil` (`-m requests,psutil`).
 
 # 8. Recommendations and Best Practices
 
@@ -213,7 +332,9 @@ When using scripts protected by Alpha Beta Network cloud tools:
 
 - **Avoid Untrusted Scripts**: Do not use this tool to create applications based on Python scripts from unreliable or unknown sources, as the code is automatically executed for analysis.
 
-- **Leverage Alpha Beta Network Tools**: Combine this script with other Alpha Beta Network tools for multi-layered protection.
+- **Leverage Command-Line Interface for Automation**: Utilize the command-line interface for integrating the packaging process into your build automation scripts or continuous integration pipelines.
+
+- **Combine with Alpha Beta Network Tools**: Combine this script with other Alpha Beta Network tools for multi-layered protection.
 
 # 9. Integration with Alpha Beta Network Tools
 
