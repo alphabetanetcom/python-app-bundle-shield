@@ -78,7 +78,7 @@ By combining the **Python App Bundle Shield** with other tools from the **Alpha 
 
 4. **Seamless Updating of Applications**: Allows updating of created applications (fixing bugs, adding functionality) without the need to reinstall them when using Alpha Beta Network cloud protection tools like the [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager).
 
-5. **Usage Restrictions**: Enables the implementation of restrictions on the use of each instance of your program (by expiration date, allowed user hardware, usage frequency, and more) when using Python scripts with Alpha Beta Network cloud protection tools ([Python Obfuscator Online](https://obfuscator.alphabetanet.com/) and [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager)), as well as local protection tools that do not require internet access ([Local Python Code Protector Script](https://github.com/alphabetanetcom/local-python-code-protector) and [Python Binary Optimization Compiler](https://github.com/alphabetanetcom/python-binary-optimization-compiler)).
+5. **Usage Restrictions**: Enables the implementation of restrictions on the use of each instance of your program (by expiration date, allowed user hardware, usage frequency, and more) when using Python scripts with Alpha Beta Network cloud protection tools ([Python Obfuscator Online](http://obfuscator.alphabetanet.com/) and [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager)), as well as local protection tools that do not require internet access ([Local Python Code Protector Script](https://github.com/alphabetanetcom/local-python-code-protector) and [Python Binary Optimization Compiler](https://github.com/alphabetanetcom/python-binary-optimization-compiler)).
 
 6. **Support for Cloud-Protected Scripts**: Provides extensive capabilities to use Python scripts protected by the Alpha Beta Network cloud platform, facilitating secure code sharing and source code protection.
 
@@ -240,7 +240,7 @@ If your script uses additional modules or packages installed via `pip`, or you a
 
 When using scripts protected by Alpha Beta Network cloud tools:
 
-1. **Obtain Cloud-Protected Script**: Use the [Python Obfuscator Online](https://obfuscator.alphabetanet.com/) or [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager) to obtain your protected script.
+1. **Obtain Cloud-Protected Script**: Use the [Python Obfuscator Online](http://obfuscator.alphabetanet.com/) or [Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager) to obtain your protected script.
 2. **Select Your File**: Choose the cloud-protected `.py` file.
 3. **Enable "Auto embed full python runtime"**: Check the option.
 4. **Click "Start"**: The script will create an executable optimized for cloud-protected scripts.
@@ -340,7 +340,7 @@ This command will:
 
 Combining the **Python App Bundle Shield** with other tools from the **Alpha Beta Network** cloud platform provides the widest and most flexible possibilities for secure distribution:
 
-- **[Python Obfuscator Online](https://obfuscator.alphabetanet.com/)**: Use for advanced cloud-based code obfuscation and protection.
+- **[Python Obfuscator Online](http://obfuscator.alphabetanet.com/)**: Use for advanced cloud-based code obfuscation and protection.
 
 - **[Secure Python Code Manager Script](https://github.com/alphabetanetcom/secure-python-code-manager)**: Manage licenses, implement usage restrictions, and seamlessly update applications.
 
